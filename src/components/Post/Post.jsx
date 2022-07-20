@@ -1,13 +1,16 @@
+import { Avatar } from '../Avatar'
+import { Comment } from './Comment'
+
 import styles from './Post.module.css'
 export function Post({author, content}) {
   return (
     <article className={styles.post}>
     <header>
       <div className={styles.author}>
-        <img className={styles.avatar} src="https://github.com/Mauricio-nexus3.png" />
+        <Avatar src="https://github.com/Mauricio-nexus3.png" />
         <div className={styles.authorInfo}>
-          <strong>John monteiro</strong>
-          <p>Vendedor</p>
+          <strong>Mauricio costa</strong>
+          <p>web developer</p>
         </div>
       </div>
 
@@ -18,9 +21,9 @@ export function Post({author, content}) {
 
     <div className={styles.content}>
       <p>Fala galera</p>
-      <p>Acabei de subir mais um projeto no meu portifólio, 
+      <p>Acabei de subir mais um projeto no meu portfólio, 
           é um projeto que fiz no NLW return, evento da rocketseat.
-          O nome do projeto é hardstore
+          O nome do projeto é Hardstore.
       </p>
   
       <p><a href="#"> John.vendas/hardstore</a></p>
@@ -32,11 +35,24 @@ export function Post({author, content}) {
     </div>
 
 
-    <footer>
-      <h2>Deixe seu feedback</h2>
-      <input type="text" />
-      <button type="submit">Publicar</button>
-    </footer>
+        <form className={styles.commentsForm} comments>
+              <strong>Deixe seu feedback</strong>
+              <textarea placeholder='Deixe um comentário' />
+              
+          <footer>
+                <button type='submit' className={styles.submitButton} >
+                  Publicar
+                </button>
+          </footer>
+
+        </form>
+  
+    <div className={styles.commentList}>
+      <Comment />
+      <Comment />
+      <Comment />
+    </div>
+
 
     </article>
   )
